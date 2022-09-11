@@ -32,3 +32,7 @@ Use "git commit -m"<Description_text>"  " to write a short description. 50 symbo
 
 ***Check all the commits before pushing***
 Use "git log" - The newest commit will have the text like (HEAD->master)
+
+***Show all the commits with ID and the base info***
+Use "git show <commit_id>"
+
