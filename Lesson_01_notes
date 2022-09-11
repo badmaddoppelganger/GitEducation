@@ -1,0 +1,34 @@
+***Check the directory***
+PS C:\GitPanda> cd
+
+***Change to the target directory***
+PS C:\GitPanda> cd .\GitEducation\
+
+***Set the Git-config parameter: Name***
+PS C:\GitPanda\GitEducation> git config --global user.name "Badmaddoppelganger"
+
+***Set the Git-config parameter: E-mail***
+PS C:\GitPanda\GitEducation> git config --global user.email "badmaddoppelganger@gmail.com"
+
+***Check the Git-config***
+PS C:\GitPanda\GitEducation> cat ~/.gitconfig
+[user]
+        email = badmaddoppelganger@gmail.com
+        name = Badmaddoppelganger
+
+***Init our git-repository***
+PS C:\GitPanda\GitEducation> git init
+Initialized empty Git repository in C:/GitPanda/GitEducation/.git/
+
+***Check the repo***
+PS C:\GitPanda\GitEducation> git status
+
+***Add the files to stage area***
+Use "git add <file>..." to include in what will be committed
+Use "git add ." to include all the files
+
+***Add all the changes if needed to the commit***
+Use "git commit -m"<Description_text>"  " to write a short description. 50 symbols is highly recommended
+
+***Check all the commits before pushing***
+Use "git log" - The newest commit will have the text like (HEAD->master)
