@@ -1,0 +1,115 @@
+***Check the directory***
+PS C:\GitPanda> cd
+
+***Change to the target directory***
+PS C:\GitPanda> cd .\GitEducation\
+
+***Set the Git-config parameter: Name***
+PS C:\GitPanda\GitEducation> git config --global user.name "Badmaddoppelganger"
+
+***Set the Git-config parameter: E-mail***
+PS C:\GitPanda\GitEducation> git config --global user.email "badmaddoppelganger@gmail.com"
+
+***Check the Git-config***
+PS C:\GitPanda\GitEducation> cat ~/.gitconfig
+[user]
+        email = badmaddoppelganger@gmail.com
+        name = Badmaddoppelganger
+
+***Init our git-repository***
+PS C:\GitPanda\GitEducation> git init
+Initialized empty Git repository in C:/GitPanda/GitEducation/.git/
+
+***Check the repo***
+PS C:\GitPanda\GitEducation> git status
+
+***Add the files to stage area***
+Use "git add <file>..." to include in what will be committed
+Use "git add ." to include all the files
+
+***Add all the changes if needed to the commit***
+Use "git commit -m"<Description_text>"  " to write a short description. 50 symbols is highly recommended
+
+***Check all the commits before pushing***
+Use "git log" - The newest commit will have the text like (HEAD->master)
+Optionally - Check all the commits short-mode
+Use "git log --oneline"
+Optionally - show in graph-mode
+Use "git log --graph"
+Optionally - Check all the commits in all branches
+Use "git log --all"
+
+
+***Show all the commits with ID and the base info***
+Use "git show <commit_id>"
+
+***Restore all the un-commited changes in the spec. file, delete-operation incl.***
+git checkout <name_of_the_file> # Example: "git checkout index.html"
+
+***Restore all the commited changes in the spec. file***
+git checkout <commit_id> <name_of_the_file> # Example: "git checkout 1cb2d53c4d0a209b073d63e47d70086072c99e15 index.html"
+                                              Beware - this file's change will be staged (git add is not necessary)
+
+***Show all the changes in file on stage/earlier version***
+git diff --staged <name_of_the_file> # Example: "git checkout 1cb2d53c4d0a209b073d63e47d70086072c99e15 index.html"
+
+***Unstage the file to remove from the commit-added changes***
+git reset HEAD <name_of_the_file> # Example: "git reset HEAD index.html"
+
+***Change the description of the last commit***
+commit --amend -m"<Description_text>" # to change description. 50 symbols is highly recommended
+
+***Remove file from commit and (optionally) re-commit without it***
+1) git log -1 # Will show only the last commit (optionally)
+2) git show <commit_id>
+3) git rm <path_to_the_file> # Example "git rm settings/index.html"
+                               Beware - this file's change will be staged - don't be scared
+Optionally - if needed this file - use:
+git rm --cached <path_to_the_file> # Example "git rm --cached settings/index.html"
+                               Beware - this file's change will be staged - don't be scared
+4) git commit --amend --no-edit
+
+***Switch to the commit***
+git checkout <commit_id>
+
+***Switch to the commit and copy the condition to the new (create) or existed branch***
+git checkout <commit_id> -b <name_of_the_branch> # Example "git checkout 1cb2d53c4d0a209b073d63e47d70086072c99e15 -b develop"
+Optionally: create/switch to a branch from the last branch
+git checkout -b <name_of_the_branch> # Example "git checkout -b develop"
+
+***Merge the branches***
+git merge <donor_branch> -m <recipient_branch> # Example git merge test -m develop
+
+***Clone a remote repository***
+git clone <github_address_of_the_repo> # Example "git clone git@github.com:badmaddoppelganger/GitEducation.git"
+
+***Push the commit to the remote repo***
+git push origin <name_of_the_branch> # Example "git push origin main". "Origin" is address of the remote repository (variable)!
+
+***If you need to push some changes from the local branch to the remote one and you have the conflict
+or you need to link the current local branch and the specified remote one (may not exists!)***
+git push --set-upstream origin <name_of_the_branch> # Example "git push --set-upstream origin main_two"
+
+***Show the link between each local and remote branch***
+git branch -vv
+
+***Change the name of the branch***
+1) git push origin <old_name>:<new_name> # Example "git push origin master:main"
+                                           Will copy branch to the new one
+2) git push origin :<old_name> # Example "git push origin :master"
+                                 Will delete the useless branch
+3) git branch -m <new_name> # Example "git branch - m main"
+                              Will re-name the local branch
+
+***Pull all the changes from the remote repository to the local repository from the specific branch***
+git pull origin <name_of_the_branch in the remote repository> # Example "git pull origin main"
+
+***Pull all the changes from the remote repository to the local repository from all branches***
+git fetch origin
+
+***Check the remote repository which is connected to your local repository***
+git remote -v
+Optionally: if you need to have a variable name of the remote repository -
+git remote add <name_of_the_remote_repository> <address_of_the_remote_repository>
+# Example "git remote add giteducation https://github.com/badmaddoppelganger/GitEducation.git
+
