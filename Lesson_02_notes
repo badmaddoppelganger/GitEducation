@@ -1,0 +1,25 @@
+***Restore all the un-commited changes in the spec. file, delete-operation incl.***
+git checkout <name_of_the_file> # Example: "git checkout index.html"
+
+***Restore all the commited changes in the spec. file***
+git checkout <commit_id> <name_of_the_file> # Example: "git checkout 1cb2d53c4d0a209b073d63e47d70086072c99e15 index.html"
+                                              Beware - this file's change will be staged (git add is not necessary)
+
+***Show all the changes in file on stage/earlier version***
+git diff --staged <name_of_the_file> # Example: "git checkout 1cb2d53c4d0a209b073d63e47d70086072c99e15 index.html"
+
+***Unstage the file to remove from the commit-added changes***
+git reset HEAD <name_of_the_file> # Example: "git reset HEAD index.html"
+
+***Change the description of the last commit***
+commit --amend -m"<Description_text>" # to change description. 50 symbols is highly recommended
+
+***Remove file from commit and (optionally) re-commit without it***
+1) git log -1 # Will show only the last commit (optionally)
+2) git show <commit_id>
+3) git rm <path_to_the_file> # Example "git rm settings/index.html"
+                               Beware - this file's change will be staged - don't be scared
+Optionally - if needed this file - use:
+git rm --cached <path_to_the_file> # Example "git rm --cached settings/index.html"
+                               Beware - this file's change will be staged - don't be scared
+4) git commit --amend --no-edit
